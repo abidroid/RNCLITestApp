@@ -3,14 +3,15 @@ import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import style from "./style";
+import { Routes } from "../../navigation/Routes";
 
-const LandingScreen = () => {
+const LandingScreen = ({navigation}) => {
 
     return (
         <SafeAreaView style={style.container}>
         <ScrollView>
             <Text style={style.heading}>Welcome</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=> navigation.navigate(Routes.AxiosExampleOne)}>
                 <View style={style.listTile}>
                 <View style={style.leading}>
                     <Text>1</Text>
