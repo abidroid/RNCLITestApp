@@ -8,7 +8,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 
-import LandingScreen from './screens/LandingScreen';
+import MainNavigation from './navigation/MainNavigation';
 
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-        <LandingScreen />
+        <MainNavigation />
     </NavigationContainer>
     );
 };
