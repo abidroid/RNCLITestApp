@@ -16,6 +16,12 @@ const LandingScreen = ({navigation}) => {
           subtitle="Dispaly a Random Quote"
           onPress={() => navigation.navigate(Routes.AxiosExampleOne)}
         />
+        <LandingScreenItem
+          serialNo="2"
+          title="Axios Get Example"
+          subtitle="Movie Search App"
+          onPress={() => navigation.navigate(Routes.AxiosMovieSearch)}
+        />
       </ScrollView>
     </SafeAreaView>
   );
