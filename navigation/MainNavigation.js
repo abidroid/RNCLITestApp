@@ -10,7 +10,8 @@ const MainNavigation = () => {
   return (
     <Stack.Navigator
       initialRouteName={Routes.Landing}
-      screenOptions={{header: () => null, headerShown: false}}>
+      //screenOptions={{header: () => null, headerShown: false}}
+      >
       <Stack.Screen name={Routes.Landing} component={LandingScreen} />
       <Stack.Screen
         name={Routes.AxiosExampleOne}
