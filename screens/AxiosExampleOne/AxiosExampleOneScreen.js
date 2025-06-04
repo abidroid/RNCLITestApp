@@ -15,6 +15,7 @@ const AxiosExampleOneScreen = () => {
 
   const getRandomQuote = async () => {
     setLoading(true);
+    setError(null);
     const url = 'https://dummyjson.com/quotes/random';
 
     /*
@@ -26,11 +27,8 @@ const AxiosExampleOneScreen = () => {
     */
     try {
       const response = await axios.get(url);
-      if (response.status === '200') {
-        setQuote(response.data);
-      } else {
-        console.log('Not Found');
-      }
+
+      setQuote(response.data);
     } catch (e) {
       setError('Could not');
       console.log(e);
@@ -49,15 +47,16 @@ const AxiosExampleOneScreen = () => {
       <TouchableOpacity>
         <Text>Get Quote</Text>
       </TouchableOpacity>
-      if( loading){<ActivityIndicator />}
-      else if( error ){<Text>{error}</Text>}
-      else
-      {
+      {loading ? (
+        <ActivityIndicator />
+      ) : error != null ? (
+        <Text>{error}</Text>
+      ) : (
         <View>
           <Text>{quote.author}</Text>
           <Text>{quote.quote}</Text>
         </View>
-      }
+      )}
     </SafeAreaView>
   );
 };
