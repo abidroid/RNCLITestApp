@@ -1,12 +1,10 @@
-import {
-  ActivityIndicator,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
+
+import {SafeAreaView} from 'react-native-safe-area-context';
+
 import axios from 'axios';
 import {useEffect, useState} from 'react';
+import style from './style';
 
 const AxiosExampleOneScreen = () => {
   const [quote, setQuote] = useState({});
@@ -42,9 +40,9 @@ const AxiosExampleOneScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <Text>Get a Random Quote</Text>
-      <TouchableOpacity>
+    <SafeAreaView style={style.container}>
+      <Text style={style.heading}>Get a Random Quote</Text>
+      <TouchableOpacity style={style.button} onPress={()=> getRandomQuote()}>
         <Text>Get Quote</Text>
       </TouchableOpacity>
       {loading ? (
@@ -52,9 +50,9 @@ const AxiosExampleOneScreen = () => {
       ) : error != null ? (
         <Text>{error}</Text>
       ) : (
-        <View>
-          <Text>{quote.author}</Text>
-          <Text>{quote.quote}</Text>
+        <View style={{gap: 8}}>
+          <Text style={style.textStyle}>{quote.author}</Text>
+          <Text style={style.textStyle}>{quote.quote}</Text>
         </View>
       )}
     </SafeAreaView>
