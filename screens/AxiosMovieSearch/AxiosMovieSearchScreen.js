@@ -8,11 +8,30 @@ const AxiosMovieSearchScreen = () => {
   const [movieName, setMovieName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [movie, setMove] = useState({});
+  const [movie, setMovie] = useState({});
 
   const getMovieDetails = async () => {
     setLoading(true);
-    
+    setError(null);
+
+    let url = `https://www.omdbapi.com/?t=${movieName}&plot=full&apikey=94e188aa`;
+
+    try {
+      const response = await axios.get(url);
+      const movieObject = response.data;
+
+      if (movieObject.Response === 'False') {
+        setError('Movie Not Found');
+      } else {
+        console.log(movieObject);
+        setMovie(movieObject);
+      }
+    } catch (e) {
+      setError('Movie Not Found');
+    } finally {
+      setLoading(false);
+      setMovieName('');
+    }
   };
 
   return (
@@ -28,10 +47,10 @@ const AxiosMovieSearchScreen = () => {
         style={style.button}
         onPress={() => {
           console.log(movieName);
-          if( movieName === ''){
-
+          if (movieName === '') {
             Alert.alert('Please provide movie name');
           }
+          getMovieDetails();
         }}>
         <Text style={style.buttonText}>Search</Text>
       </TouchableOpacity>
