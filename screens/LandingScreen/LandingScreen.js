@@ -19,8 +19,14 @@ const LandingScreen = ({navigation}) => {
         <LandingScreenItem
           serialNo="2"
           title="Axios Get Example"
-          subtitle="Movie Search App"
+          subtitle="Movie Search Screen"
           onPress={() => navigation.navigate(Routes.AxiosMovieSearch)}
+        />
+        <LandingScreenItem
+          serialNo="3"
+          title="Axios Get Example"
+          subtitle="Product List Screen"
+          onPress={() => navigation.navigate(Routes.ProdudutList)}
         />
       </ScrollView>
     </SafeAreaView>
