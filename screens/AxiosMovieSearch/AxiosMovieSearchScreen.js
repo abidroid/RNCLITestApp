@@ -1,5 +1,13 @@
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Alert, Text, TextInput, TouchableOpacity} from 'react-native';
+import {
+  ActivityIndicator,
+  View,
+  Alert,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import {useState} from 'react';
 import style from './style';
 import axios from 'axios';
@@ -54,6 +62,15 @@ const AxiosMovieSearchScreen = () => {
         }}>
         <Text style={style.buttonText}>Search</Text>
       </TouchableOpacity>
+      {loading ? (
+        <ActivityIndicator />
+      ) : error ? (
+        <Text>{error}</Text>
+      ) : (
+        <View>
+          <Image source={{uri: movie.Poster}} />
+        </View>
+      )}
     </SafeAreaView>
   );
 };
