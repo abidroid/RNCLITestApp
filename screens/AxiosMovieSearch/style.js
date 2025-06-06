@@ -19,6 +19,13 @@ const style = StyleSheet.create({
     buttonText: {
         color: 'white',
     },
+
+    movieDetailContainer: {
+        flex: 1,
+        gap: 8,
+        alignItems:'center',
+       
+    },
 });
 
 export default style;

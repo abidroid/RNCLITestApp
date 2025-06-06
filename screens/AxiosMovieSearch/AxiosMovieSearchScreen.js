@@ -1,6 +1,7 @@
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   ActivityIndicator,
+  ScrollView,
   View,
   Alert,
   Text,
@@ -11,6 +12,7 @@ import {
 import {useState} from 'react';
 import style from './style';
 import axios from 'axios';
+import MovieItem from '../../components/MovieScreenComponents/MovieItem';
 
 const AxiosMovieSearchScreen = () => {
   const [movieName, setMovieName] = useState('');
@@ -67,9 +69,18 @@ const AxiosMovieSearchScreen = () => {
       ) : error ? (
         <Text>{error}</Text>
       ) : (
-        <View>
-          <Image source={{uri: movie.Poster}} />
-        </View>
+        <ScrollView >
+          
+          <View style={style.movieDetailContainer}>
+            <Image source={{uri: movie.Poster}} 
+            style={{width: 250, height: 400}}
+          />
+
+          <MovieItem title='Title' value={movie.Title} />
+          <MovieItem title='Actors' value={movie.Actors} />
+          <MovieItem title='Writers' value={movie.Writer} />
+          </View>
+        </ScrollView>
       )}
     </SafeAreaView>
   );
