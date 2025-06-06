@@ -69,16 +69,16 @@ const AxiosMovieSearchScreen = () => {
       ) : error ? (
         <Text>{error}</Text>
       ) : (
-        <ScrollView >
-          
+        <ScrollView>
           <View style={style.movieDetailContainer}>
-            <Image source={{uri: movie.Poster}} 
-            style={{width: 250, height: 400}}
-          />
+            <Image
+              source={{uri: movie.Poster}}
+              style={{width: 250, height: 400}}
+            />
 
-          <MovieItem title='Title' value={movie.Title} />
-          <MovieItem title='Actors' value={movie.Actors} />
-          <MovieItem title='Writers' value={movie.Writer} />
+            <MovieItem title="Title" value={movie.Title} />
+            <MovieItem title="Actors" value={movie.Actors} />
+            <MovieItem title="Writers" value={movie.Writer} />
           </View>
         </ScrollView>
       )}
