@@ -3,8 +3,7 @@ import LandingScreen from '../screens/LandingScreen/LandingScreen';
 import {Routes} from './Routes';
 import AxiosExampleOneScreen from '../screens/AxiosExampleOne/AxiosExampleOneScreen';
 import AxiosMovieSearchScreen from '../screens/AxiosMovieSearch/AxiosMovieSearchScreen';
-import ProductListScreen from '../screens/ProductList/style';
-
+import ProductListScreen from '../screens/ProductList/ProductListScreen';
 const Stack = createStackNavigator();
 
 const MainNavigation = () => {
