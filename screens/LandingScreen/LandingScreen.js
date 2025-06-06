@@ -28,6 +28,12 @@ const LandingScreen = ({navigation}) => {
           subtitle="Product List Screen"
           onPress={() => navigation.navigate(Routes.ProdudutList)}
         />
+        <LandingScreenItem
+          serialNo="4"
+          title="Axios POST Example"
+          subtitle="Add a Product"
+          onPress={() => navigation.navigate(Routes.AxiosPostRequest)}
+        />
       </ScrollView>
     </SafeAreaView>
   );

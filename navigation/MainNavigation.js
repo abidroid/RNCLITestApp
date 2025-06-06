@@ -4,6 +4,7 @@ import {Routes} from './Routes';
 import AxiosExampleOneScreen from '../screens/AxiosExampleOne/AxiosExampleOneScreen';
 import AxiosMovieSearchScreen from '../screens/AxiosMovieSearch/AxiosMovieSearchScreen';
 import ProductListScreen from '../screens/ProductList/ProductListScreen';
+import AxiosPostRequestScreen from '../screens/AxiosPostRequest/AxiosPostRequestScreen';
 const Stack = createStackNavigator();
 
 const MainNavigation = () => {
@@ -24,6 +25,10 @@ const MainNavigation = () => {
       <Stack.Screen
         name={Routes.ProdudutList}
         component={ProductListScreen}
+      />
+      <Stack.Screen
+        name={Routes.AxiosPostRequest}
+        component={AxiosPostRequestScreen}
       />
     </Stack.Navigator>
   );
