@@ -5,6 +5,7 @@ import AxiosExampleOneScreen from '../screens/AxiosExampleOne/AxiosExampleOneScr
 import AxiosMovieSearchScreen from '../screens/AxiosMovieSearch/AxiosMovieSearchScreen';
 import ProductListScreen from '../screens/ProductList/ProductListScreen';
 import AxiosPostRequestScreen from '../screens/AxiosPostRequest/AxiosPostRequestScreen';
+import RadioButtonExampleScreen from '../screens/RadioButtonExample/RadioButtonExampleScreen';
 const Stack = createStackNavigator();
 
 const MainNavigation = () => {
@@ -29,6 +30,10 @@ const MainNavigation = () => {
       <Stack.Screen
         name={Routes.AxiosPostRequest}
         component={AxiosPostRequestScreen}
+      />
+      <Stack.Screen
+        name={Routes.RadioButtonExample}
+        component={RadioButtonExampleScreen}
       />
     </Stack.Navigator>
   );

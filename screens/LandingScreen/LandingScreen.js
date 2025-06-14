@@ -34,6 +34,12 @@ const LandingScreen = ({navigation}) => {
           subtitle="Add a Product"
           onPress={() => navigation.navigate(Routes.AxiosPostRequest)}
         />
+        <LandingScreenItem
+          serialNo="5"
+          title="Radio Button Example"
+          subtitle="Gender Example"
+          onPress={() => navigation.navigate(Routes.RadioButtonExample)}
+        />
       </ScrollView>
     </SafeAreaView>
   );

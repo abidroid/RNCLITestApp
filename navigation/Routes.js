@@ -4,4 +4,5 @@ export const Routes = {
   AxiosMovieSearch: 'AxiosMovieSearch',
   ProdudutList: 'ProductList',
   AxiosPostRequest: 'AxiosPostRequest',
+  RadioButtonExample: 'RadioButtonExample',
 };
