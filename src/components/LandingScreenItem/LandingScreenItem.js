@@ -3,8 +3,7 @@ import style from './style';
 
 const LandingScreenItem = props => {
   return (
-    <TouchableOpacity
-      onPress={props.onPress}>
+    <TouchableOpacity activeOpacity={0.8} onPress={props.onPress}>
       <View style={style.listTile}>
         <View style={style.leading}>
           <Text>{props.serialNo}</Text>

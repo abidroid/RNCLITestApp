@@ -1,6 +1,6 @@
 import {ScrollView} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 import style from './style';
 import LandingScreenItem from '../../components/LandingScreenItem/LandingScreenItem';
 
@@ -47,7 +47,12 @@ const LandingScreen = ({navigation}) => {
           subtitle="Profile Image Example"
           onPress={() => navigation.navigate(Routes.ProfileImageExample)}
         />
+        <View 
+        style={{height: 600, backgroundColor: 'red'}}
+      ></View>
       </ScrollView>
+
+      
     </SafeAreaView>
   );
 };
