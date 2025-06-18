@@ -1,12 +1,13 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import LandingScreen from '../screens/LandingScreen/LandingScreen';
+import LandingScreen from '../src/screens/LandingScreen/LandingScreen';
 import {Routes} from './Routes';
-import AxiosExampleOneScreen from '../screens/AxiosExampleOne/AxiosExampleOneScreen';
-import AxiosMovieSearchScreen from '../screens/AxiosMovieSearch/AxiosMovieSearchScreen';
-import ProductListScreen from '../screens/ProductList/ProductListScreen';
-import AxiosPostRequestScreen from '../screens/AxiosPostRequest/AxiosPostRequestScreen';
-import RadioButtonExampleScreen from '../screens/RadioButtonExample/RadioButtonExampleScreen';
+import AxiosExampleOneScreen from '../src/screens/AxiosExampleOne/AxiosExampleOneScreen';
+import AxiosMovieSearchScreen from '../src/screens/AxiosMovieSearch/AxiosMovieSearchScreen';
+import ProductListScreen from '../src/screens/ProductList/ProductListScreen';
+import AxiosPostRequestScreen from '../src/screens/AxiosPostRequest/AxiosPostRequestScreen';
+import RadioButtonExampleScreen from '../src/screens/RadioButtonExample/RadioButtonExampleScreen';
 import ProfileImageScreen from '../src/screens/ProfileImage/ProfileImageScreen';
+
 const Stack = createStackNavigator();
 
 const MainNavigation = () => {

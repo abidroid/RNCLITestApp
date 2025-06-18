@@ -2,8 +2,9 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Text} from 'react-native';
 import style from './style';
-import {Routes} from '../../navigation/Routes';
 import LandingScreenItem from '../../components/LandingScreenItem/LandingScreenItem';
+
+import { Routes } from '../../../navigation/Routes';
 
 const LandingScreen = ({navigation}) => {
   return (
