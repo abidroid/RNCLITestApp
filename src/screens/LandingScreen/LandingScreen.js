@@ -40,6 +40,12 @@ const LandingScreen = ({navigation}) => {
           subtitle="Gender Example"
           onPress={() => navigation.navigate(Routes.RadioButtonExample)}
         />
+        <LandingScreenItem
+          serialNo="6"
+          title="Profile Image Example"
+          subtitle="Profile Image Example"
+          onPress={() => navigation.navigate(Routes.ProfileImageExample)}
+        />
       </ScrollView>
     </SafeAreaView>
   );

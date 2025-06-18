@@ -5,4 +5,5 @@ export const Routes = {
   ProdudutList: 'ProductList',
   AxiosPostRequest: 'AxiosPostRequest',
   RadioButtonExample: 'RadioButtonExample',
+  ProfileImageExample: 'ProfileImage',
 };
