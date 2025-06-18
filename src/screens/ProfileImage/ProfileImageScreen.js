@@ -22,60 +22,69 @@ const ProfileImageScreen = () => {
   const [image, setImage] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
-const getPermission = async (type) => {
-  let permission;
+  const getPermission = async type => {
+    let permission;
 
-  if (type === 'camera') {
-    permission = Platform.select({
-      android: PERMISSIONS.ANDROID.CAMERA,
-      ios: PERMISSIONS.IOS.CAMERA,
-    });
-  } else if (type === 'gallery') {
-    permission = Platform.select({
-      android:
-        Platform.Version >= 33
-          ? PERMISSIONS.ANDROID.READ_MEDIA_IMAGES
-          : PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE,
-      ios: PERMISSIONS.IOS.PHOTO_LIBRARY,
-    });
-  }
-
-  const result = await check(permission);
-  console.log('Permission result:', result); // Add logging to debug
-
-  switch (result) {
-    case RESULTS.UNAVAILABLE:
-      Alert.alert('Permission unavailable', 'This feature is not available on this device.');
-      return false;
-
-    case RESULTS.DENIED: {
-      const requestResult = await request(permission);
-      console.log('Request result:', requestResult);
-      return requestResult === RESULTS.GRANTED;
+    if (type === 'camera') {
+      permission = Platform.select({
+        android: PERMISSIONS.ANDROID.CAMERA,
+        ios: PERMISSIONS.IOS.CAMERA,
+      });
+    } else if (type === 'gallery') {
+      permission = Platform.select({
+        android:
+          Platform.Version >= 33
+            ? PERMISSIONS.ANDROID.READ_MEDIA_IMAGES
+            : PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE,
+        ios: PERMISSIONS.IOS.PHOTO_LIBRARY,
+      });
     }
 
-    case RESULTS.GRANTED:
-      return true;
+    const result = await check(permission);
+    console.log('Permission result:', result); // Add logging to debug
 
-    case RESULTS.LIMITED: // iOS only
-      return true;
+    switch (result) {
+      case RESULTS.UNAVAILABLE:
+        if (Platform.OS === 'ios') {
+          return true;
+        }
+        
+        Alert.alert(
+          'Permission unavailable',
+          'This feature is not available on this device.',
+        );
 
-    case RESULTS.BLOCKED:
-      Alert.alert(
-        'Permission Blocked',
-        'Please enable it manually from settings.',
-        [
-          { text: 'Cancel', style: 'cancel' },
-          { text: 'Open Settings', onPress: () => openSettings() },
-        ]
-      );
-      return false;
+        
 
-    default:
-      return false;
-  }
-};
+        return false;
 
+      case RESULTS.DENIED: {
+        const requestResult = await request(permission);
+        console.log('Request result:', requestResult);
+        return requestResult === RESULTS.GRANTED;
+      }
+
+      case RESULTS.GRANTED:
+        return true;
+
+      case RESULTS.LIMITED: // iOS only
+        return true;
+
+      case RESULTS.BLOCKED:
+        Alert.alert(
+          'Permission Blocked',
+          'Please enable it manually from settings.',
+          [
+            {text: 'Cancel', style: 'cancel'},
+            {text: 'Open Settings', onPress: () => openSettings()},
+          ],
+        );
+        return false;
+
+      default:
+        return false;
+    }
+  };
 
   const pickFromGallery = async () => {
     const hasPermission = await getPermission('gallery');
@@ -94,12 +103,12 @@ const getPermission = async (type) => {
   const pickFromCamera = async () => {
     Alert.alert('camera will open');
     console.log('Opening Camera');
-    
+
     const hasPermission = await getPermission('camera');
-        Alert.alert(`Cmera permission: $hasPermission`);
+    Alert.alert(`Cmera permission: $hasPermission`);
 
     console.log('Gallery permission: ', hasPermission);
-    
+
     if (!hasPermission) return;
 
     setModalVisible(false);
@@ -114,7 +123,6 @@ const getPermission = async (type) => {
 
   return (
     <View style={{padding: 20, alignItems: 'center'}}>
-
       <TouchableOpacity onPress={() => setModalVisible(true)}>
         <Image
           source={{uri: image}}
@@ -126,14 +134,16 @@ const getPermission = async (type) => {
         onBackdropPress={() => setModalVisible(false)}
         style={styles.bottomModal}>
         <View style={styles.modalContent}>
-          <TouchableOpacity onPress={() => pickFromCamera()} style={styles.option}>
+          <TouchableOpacity
+            onPress={() => pickFromCamera()}
+            style={styles.option}>
             <Text style={styles.optionText}>Camera</Text>
           </TouchableOpacity>
-          
+
           <TouchableOpacity onPress={pickFromGallery} style={styles.option}>
             <Text style={styles.optionText}>Gallery</Text>
           </TouchableOpacity>
-          
+
           <TouchableOpacity
             onPress={() => setModalVisible(false)}
             style={styles.option}>
