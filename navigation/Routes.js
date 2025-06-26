@@ -1,4 +1,5 @@
 export const Routes = {
+  Splash: 'SplashScreen',
   Landing: 'LandingScreen',
   AxiosExampleOne: 'AxiosExampleOneScreen',
   AxiosMovieSearch: 'AxiosMovieSearch',

@@ -7,15 +7,17 @@ import ProductListScreen from '../src/screens/ProductList/ProductListScreen';
 import AxiosPostRequestScreen from '../src/screens/AxiosPostRequest/AxiosPostRequestScreen';
 import RadioButtonExampleScreen from '../src/screens/RadioButtonExample/RadioButtonExampleScreen';
 import ProfileImageScreen from '../src/screens/ProfileImage/ProfileImageScreen';
+import SplashScreen from '../src/screens/Splash/SplashScreen';
 
 const Stack = createStackNavigator();
 
 const MainNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName={Routes.Landing}
+      initialRouteName={Routes.Splash}
       //screenOptions={{header: () => null, headerShown: false}}
       >
+      <Stack.Screen name={Routes.Splash} component={SplashScreen} />
       <Stack.Screen name={Routes.Landing} component={LandingScreen} />
       <Stack.Screen
         name={Routes.AxiosExampleOne}
