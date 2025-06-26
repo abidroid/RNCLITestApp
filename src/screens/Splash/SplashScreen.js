@@ -8,7 +8,7 @@ const SplashScreen = ({navigation}) => {
 
       const timer = setTimeout(() => {
 
-        navigation.seplace(Routes.Landing); // Navigate and remove from stack
+        navigation.replace(Routes.Landing); // Navigate and remove from stack
 
 
       }, 3000);

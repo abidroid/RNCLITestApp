@@ -16,8 +16,12 @@ const MainNavigation = () => {
     <Stack.Navigator
       initialRouteName={Routes.Splash}
       //screenOptions={{header: () => null, headerShown: false}}
-      >
-      <Stack.Screen name={Routes.Splash} component={SplashScreen} />
+    >
+      <Stack.Screen
+        name={Routes.Splash}
+        component={SplashScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen name={Routes.Landing} component={LandingScreen} />
       <Stack.Screen
         name={Routes.AxiosExampleOne}
@@ -27,10 +31,7 @@ const MainNavigation = () => {
         name={Routes.AxiosMovieSearch}
         component={AxiosMovieSearchScreen}
       />
-      <Stack.Screen
-        name={Routes.ProdudutList}
-        component={ProductListScreen}
-      />
+      <Stack.Screen name={Routes.ProdudutList} component={ProductListScreen} />
       <Stack.Screen
         name={Routes.AxiosPostRequest}
         component={AxiosPostRequestScreen}
