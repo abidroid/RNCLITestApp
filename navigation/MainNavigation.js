@@ -8,6 +8,7 @@ import AxiosPostRequestScreen from '../src/screens/AxiosPostRequest/AxiosPostReq
 import RadioButtonExampleScreen from '../src/screens/RadioButtonExample/RadioButtonExampleScreen';
 import ProfileImageScreen from '../src/screens/ProfileImage/ProfileImageScreen';
 import SplashScreen from '../src/screens/Splash/SplashScreen';
+import DialogAndToastScreen from '../src/screens/DialogAndToast/DialogAndToastScreen';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +44,10 @@ const MainNavigation = () => {
       <Stack.Screen
         name={Routes.ProfileImageExample}
         component={ProfileImageScreen}
+      />
+       <Stack.Screen
+        name={Routes.DialogAndToastExample}
+        component={DialogAndToastScreen}
       />
     </Stack.Navigator>
   );

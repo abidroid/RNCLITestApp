@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 import style from './style';
 import LandingScreenItem from '../../components/LandingScreenItem/LandingScreenItem';
 
-import { Routes } from '../../../navigation/Routes';
+import {Routes} from '../../../navigation/Routes';
 
 const LandingScreen = ({navigation}) => {
   return (
@@ -47,10 +47,14 @@ const LandingScreen = ({navigation}) => {
           subtitle="Profile Image Example"
           onPress={() => navigation.navigate(Routes.ProfileImageExample)}
         />
-       
-      </ScrollView>
 
-      
+        <LandingScreenItem
+          serialNo="7"
+          title="Dialog and Toast Example"
+          subtitle="Dialog and Toast"
+          onPress={() => navigation.navigate(Routes.DialogAndToastExample)}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };

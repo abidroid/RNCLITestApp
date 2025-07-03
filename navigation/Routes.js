@@ -7,4 +7,5 @@ export const Routes = {
   AxiosPostRequest: 'AxiosPostRequest',
   RadioButtonExample: 'RadioButtonExample',
   ProfileImageExample: 'ProfileImage',
+  DialogAndToastExample: 'DialogAndToast',
 };
