@@ -1,19 +1,17 @@
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 
 import MainNavigation from './navigation/MainNavigation';
-
+import {AlertNotificationRoot} from 'react-native-alert-notification';
 
 const App = () => {
-
-
   return (
-    <NavigationContainer>
+    <AlertNotificationRoot>
+      <NavigationContainer>
         <MainNavigation />
-    </NavigationContainer>
-    );
+      </NavigationContainer>
+    </AlertNotificationRoot>
+  );
 };
-
-
 
 export default App;

@@ -47,9 +47,7 @@ const LandingScreen = ({navigation}) => {
           subtitle="Profile Image Example"
           onPress={() => navigation.navigate(Routes.ProfileImageExample)}
         />
-        <View 
-        style={{height: 600, backgroundColor: 'red'}}
-      ></View>
+       
       </ScrollView>
 
       
